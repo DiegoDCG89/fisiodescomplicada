@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia Clínico Interdisciplinar | Dor Pélvica Feminina</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .alert-card {
+        border-left: 3px solid var(--terracotta);
+        background: rgba(164, 78, 36, 0.06);
+      }
+      .alert-card span {
+        color: var(--terracotta) !important;
+      }
+      .alert-card .button.mini {
+        background: var(--terracotta);
+        color: var(--white);
+      }
+      .alert-card .button.mini:hover {
+        background: var(--cocoa);
+      }
+
+      /* Imagem destaque */
+      .img-destaque { background: var(--paper); padding: 0; }
+      .img-destaque-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
+        align-items: center;
+        min-height: 520px;
+      }
+      .img-destaque-text {
+        padding: clamp(50px, 8vw, 100px) clamp(28px, 6vw, 80px);
+      }
+      .img-destaque-text h2 {
+        margin: 0 0 20px;
+        color: var(--terracotta);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+        line-height: 1.12;
+        font-weight: 500;
+      }
+      .img-destaque-text p {
+        font-size: clamp(1rem, 1.8vw, 1.16rem);
+        max-width: 500px;
+        margin: 0;
+      }
+      .img-destaque-foto {
+        height: 100%;
+        min-height: 520px;
+        overflow: hidden;
+      }
+      .img-destaque-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      @media (max-width: 800px) {
+        .img-destaque-inner {
+          grid-template-columns: 1fr;
+          min-height: unset;
+        }
+        .img-destaque-foto {
+          min-height: 320px;
+        }
+      }
+
+      .section-img5 { padding: 0; line-height: 0; }
+      /* Especialistas */
+      .especialista-cta { background: var(--paper-soft); }
+      .esp-heading { margin-bottom: clamp(28px, 4vw, 48px); }
+      .esp-heading h2 {
+        margin: 0 0 12px;
+        color: var(--terracotta);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.12;
+        font-weight: 500;
+        font-family: Georgia,"Times New Roman",serif;
+      }
+      .esp-intro-text {
+        font-size: clamp(1rem, 1.8vw, 1.18rem);
+        max-width: 620px;
+        margin: 0;
+      }
+      .esp-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(16px, 3vw, 32px);
+      }
+      .esp-card {
+        background: var(--white);
+        border-radius: 10px;
+        padding: clamp(22px, 3vw, 34px);
+        border-top: 3px solid var(--terracotta);
+        box-shadow: 0 6px 22px rgba(92,55,39,0.09);
+        transition: transform 240ms ease, box-shadow 240ms ease;
+      }
+      .esp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 32px rgba(92,55,39,0.15);
+      }
+      .esp-icon { font-size: 1.8rem; margin-bottom: 10px; }
+      .esp-card h3 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        color: var(--terracotta);
+        margin: 0 0 4px;
+      }
+      .esp-card .sub-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--cocoa);
+        opacity: 0.65;
+        margin: 12px 0 10px;
+      }
+      .esp-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 7px;
+      }
+      .esp-card ul li {
+        padding: 10px 14px;
+        background: var(--paper-soft);
+        border-left: 3px solid var(--terracotta);
+        border-radius: 0 5px 5px 0;
+        font-size: clamp(0.88rem, 1.4vw, 0.96rem);
+        color: var(--ink);
+        transition: background 180ms ease, transform 180ms ease;
+      }
+      .esp-card ul li:hover {
+        background: var(--paper);
+        transform: translateX(3px);
+      }
+      @media (max-width: 800px) {
+        .esp-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero" id="inicio">
+      <nav class="topbar" aria-label="Navegacao principal">
+        <a href="#inicio" class="brand">Guia Clínico</a>
+        <div class="nav-links">
+          <a href="#classificacao">Classificacao</a>
+          <a href="#padroes">Padrões</a>
+          <a href="#anamneses">Anamnese</a>
+        </div>
+      </nav>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Saúde da mulher</p>
+        <h1>Guia Clínico Interdisciplinar para Identificação, Manejo Inicial e Encaminhamento da Dor Pélvica Feminina</h1>
+        <a class="button primary pulse" href="#conceito">Começar leitura</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section intro reveal" id="conceito">
+        <div class="intro-inner">
+          <div class="intro-text">
+            <p class="kicker">O que é dor pélvica</p>
+            <h2>A dor pélvica feminina é uma condição clínica multifatorial.</h2>
+            <p>
+              Pode ser localizada na região inferior do abdômen, pelve ou períneo. É frequentemente associada a alterações ginecológicas, musculoesqueléticas, urinárias, intestinais e emocionais.
+            </p>
+            <p>
+              Sua apresentação pode ocorrer de forma aguda ou crônica, impactando funcionalidade, qualidade de vida, saúde mental, sono, vida sexual e participação social.
+            </p>
+            <a class="button ghost" href="Referencias.html">Acessar estudos</a>
+          </div>
+          <div class="intro-img">
+            <img src="1.png" alt="Mulher com dor pélvica sentada na cama" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section classification reveal" id="classificacao">
+        <div class="section-heading">
+          <h2>Classificação</h2>
+        </div>
+        <div class="split-list">
+          <article class="pill-card">
+            <h3>Dor pélvica aguda</h3>
+            <p>Início súbito, geralmente associada a processos infecciosos, inflamatórios ou emergenciais. Duração inferior a 3 meses.</p>
+          </article>
+          <article class="pill-card">
+            <h3>Dor pélvica crônica</h3>
+            <p>Persistência superior a 6 meses. Pode apresentar sensibilização central e estar frequentemente associada a fatores biopsicossociais.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section patterns" id="padroes">
+        <div class="section-heading reveal">
+          <h2>Principais padrões clínicos</h2>
+        </div>
+
+        <div class="pattern-grid">
+          <article class="pattern-card reveal">
+            <span>Dor cíclica</span>
+            <p>Relacionada ao ciclo menstrual, intensifica-se no período pré-menstrual ou menstrual. Pode estar associada a endometriose e dismenorreia.</p>
+            <a class="button mini" href="dor-ciclica.html">Saiba mais</a>
+          </article>
+          <article class="pattern-card reveal delay-1">
+            <span>Dor musculoesquelética</span>
+            <p>Piora ao permanecer sentada ou em determinadas posturas. Pode envolver tensão muscular, dor em região lombar, quadril ou períneo.</p>
+            <a class="button mini" href="dor-musculoesqueletica.html">Saiba mais</a>
+          </article>
+          <article class="pattern-card reveal delay-2">
+            <span>Dor visceral</span>
+            <p>Dor profunda ou difusa, associada a sintomas urinários ou intestinais, com sensação de pressão pélvica.</p>
+            <a class="button mini" href="dor-visceral.html">Saiba mais</a>
+          </article>
+          <article class="pattern-card reveal delay-3">
+            <span>Dispareunia</span>
+            <p>Dor durante ou após a penetração, medo ou tensão durante o ato sexual e possível impacto emocional.</p>
+            <a class="button mini" href="dispareunia.html">Saiba mais</a>
+          </article>
+          <article class="pattern-card reveal">
+            <span>Dor relacionada ao estresse e tensão muscular</span>
+            <p>Dor flutuante, piora em períodos de ansiedade ou estresse, com sensação constante de contração muscular.</p>
+            <a class="button mini" href="dor-estresse.html">Saiba mais</a>
+          </article>
+          <article class="pattern-card reveal delay-1 alert-card">
+            <span>Sinais de alerta</span>
+            <p>Os seguintes sinais exigem avaliação prioritária ou encaminhamento imediato.</p>
+            <a class="button mini" href="sinais-alerta.html">Saiba mais</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section anamnesis reveal" id="anamneses">
+        <div class="section-heading">
+          <h2>Anamnese inicial</h2>
+        </div>
+        <div class="anamnesis-inner">
+          <div class="two-columns">
+            <div>
+              <h3>Perguntas norteadoras</h3>
+              <p>A avaliação clínica deve considerar não apenas a dor, mas também os impactos físicos, emocionais e funcionais da paciente.</p>
+              <a class="button ghost" href="anamnese-detalhes.html">Saiba mais</a>
+            </div>
+            <div>
+              <h3>Avaliar</h3>
+              <p>Sono, trabalho, atividade física, vida sexual, humor, atividades domésticas e participação social.</p>
+              <p>Além disso é importante observar: postura, mobilidade lombopélvica, padrão respiratório, tensão abdominal e comportamento de proteção corporal.</p>
+            </div>
+          </div>
+          <div class="anamnesis-img">
+            <img src="2.png" alt="Mulher com mãos no abdômen" />
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="manejo">
+        <div class="final-overlay reveal">
+          <p class="kicker light">Manejo inicial conservador</p>
+          <h2>Educação, cuidado progressivo e encaminhamento adequado.</h2>
+          <a class="button primary" href="manejo-conservador.html">Clique aqui</a>
+        </div>
+      </section>
+
+      <section class="section especialista-cta reveal">
+        <div class="esp-heading">
+          <p class="kicker">Encaminhamento</p>
+          <h2>Quando Procurar um Especialista?</h2>
+          <p class="esp-intro-text">Cada profissional atua em um aspecto específico da dor pélvica. Identifique o encaminhamento mais adequado para cada situação.</p>
+        </div>
+
+        <div class="esp-grid">
+
+          <div class="esp-card reveal">
+            <div class="esp-icon">🦴</div>
+            <h3>Fisioterapeuta Pélvico</h3>
+            <p class="sub-label">Procure quando houver</p>
+            <ul>
+              <li>Dor muscular</li>
+              <li>Dor durante relações sexuais</li>
+              <li>Tensão pélvica</li>
+              <li>Limitações funcionais</li>
+              <li>Alterações posturais</li>
+            </ul>
+          </div>
+
+          <div class="esp-card reveal delay-1">
+            <div class="esp-icon">🩺</div>
+            <h3>Ginecologista</h3>
+            <p class="sub-label">Procure quando houver</p>
+            <ul>
+              <li>Cólicas intensas</li>
+              <li>Alterações menstruais</li>
+              <li>Suspeita de endometriose</li>
+              <li>Sangramento vaginal anormal</li>
+            </ul>
+          </div>
+
+          <div class="esp-card reveal delay-2">
+            <div class="esp-icon">🧠</div>
+            <h3>Psicólogo</h3>
+            <p class="sub-label">Procure quando houver</p>
+            <ul>
+              <li>Ansiedade associada à dor</li>
+              <li>Medo de movimento</li>
+              <li>Impacto emocional importante</li>
+              <li>Estresse persistente</li>
+            </ul>
+          </div>
+
+          <div class="esp-card reveal delay-3">
+            <div class="esp-icon">💧</div>
+            <h3>Urologista</h3>
+            <p class="sub-label">Procure quando houver</p>
+            <ul>
+              <li>Dor vesical</li>
+              <li>Urgência urinária</li>
+              <li>Infecções urinárias recorrentes</li>
+              <li>Sintomas urinários persistentes</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <section class="section-img5 reveal">
+        <img src="5.png" alt="Fluxograma clínico simplificado" style="width:100%; display:block;" />
+      </section>
+    </main>
+  </body>
+</html>

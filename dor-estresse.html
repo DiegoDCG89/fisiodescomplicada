@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dor Relacionada ao Estresse | Guia Clínico Interdisciplinar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .detail-hero {
+        min-height: 36vh;
+        background: linear-gradient(135deg, #9c5540 0%, var(--cocoa) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: clamp(28px,6vw,80px);
+        position: relative;
+        overflow: hidden;
+      }
+      .detail-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.07) 0%, transparent 55%);
+      }
+      .back-link {
+        position: absolute;
+        top: clamp(18px,4vw,36px);
+        left: clamp(20px,6vw,80px);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255,249,242,0.75);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 200ms ease;
+      }
+      .back-link:hover { color: var(--white); }
+      .back-link::before { content: "←"; font-size: 1rem; }
+      .detail-tag {
+        display: inline-block;
+        padding: 6px 16px;
+        border: 1px solid rgba(255,249,242,0.35);
+        border-radius: 999px;
+        color: rgba(255,249,242,0.8);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 18px;
+        width: fit-content;
+      }
+      .detail-hero h1 {
+        margin: 0;
+        color: var(--white);
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(2rem,5vw,3.8rem);
+        line-height: 1.05;
+        font-weight: 700;
+        animation: fadeRise 700ms ease both;
+      }
+      .detail-content {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: clamp(50px,8vw,100px) clamp(20px,6vw,60px);
+      }
+      .detail-intro {
+        font-size: clamp(1.05rem,2vw,1.25rem);
+        color: var(--cocoa);
+        margin-bottom: clamp(40px,6vw,70px);
+        padding-bottom: clamp(28px,4vw,44px);
+        border-bottom: 1px solid var(--taupe);
+      }
+      .detail-block {
+        margin-bottom: clamp(36px,5vw,56px);
+        animation: fadeRise 700ms ease both;
+      }
+      .detail-block:nth-child(2){animation-delay:80ms}
+      .detail-block:nth-child(3){animation-delay:160ms}
+      .detail-block h2 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1.1rem,2.2vw,1.45rem);
+        color: var(--terracotta);
+        margin: 0 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .detail-block h2::before {
+        content: "";
+        display: inline-block;
+        width: 28px;
+        height: 2px;
+        background: var(--terracotta);
+        flex-shrink: 0;
+      }
+      .detail-block ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .detail-block ul li {
+        padding: 14px 18px;
+        background: var(--paper-soft);
+        border-left: 3px solid var(--terracotta);
+        border-radius: 0 6px 6px 0;
+        font-size: clamp(0.95rem,1.6vw,1.05rem);
+        color: var(--ink);
+        transition: background 200ms ease, transform 200ms ease;
+      }
+      .detail-block ul li:hover {
+        background: var(--white);
+        transform: translateX(4px);
+      }
+      .detail-footer {
+        margin-top: clamp(50px,8vw,80px);
+        padding-top: 32px;
+        border-top: 1px solid var(--taupe);
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="detail-hero">
+      <a href="index.html" class="back-link">Voltar ao guia</a>
+      <span class="detail-tag">Padrão clínico 05</span>
+      <h1>Dor Relacionada ao Estresse e Tensão Muscular</h1>
+    </div>
+    <div class="detail-content">
+      <p class="detail-intro">
+        O estresse e a ansiedade podem aumentar a tensão muscular e amplificar a percepção dolorosa, com manifestação variável e frequentemente flutuante.
+      </p>
+      <div class="detail-block">
+        <h2>Características frequentes</h2>
+        <ul>
+          <li>Dor variável</li>
+          <li>Sensação constante de contração muscular</li>
+          <li>Piora em períodos de ansiedade</li>
+          <li>Hipervigilância corporal</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h2>Estratégias importantes</h2>
+        <ul>
+          <li>Controle do estresse</li>
+          <li>Respiração diafragmática</li>
+          <li>Exercícios leves</li>
+          <li>Psicoterapia</li>
+          <li>Relaxamento muscular</li>
+        </ul>
+      </div>
+      <div class="detail-footer">
+        <a class="button ghost" href="index.html">← Voltar ao guia completo</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manejo Conservador | Guia Clínico Interdisciplinar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .detail-hero {
+        min-height: 36vh;
+        background: linear-gradient(135deg, var(--cocoa) 0%, #3a1f14 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: clamp(28px,6vw,80px);
+        position: relative;
+        overflow: hidden;
+      }
+      .detail-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 60% 20%, rgba(255,255,255,0.07) 0%, transparent 60%);
+      }
+      .back-link {
+        position: absolute;
+        top: clamp(18px,4vw,36px);
+        left: clamp(20px,6vw,80px);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255,249,242,0.75);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 200ms ease;
+      }
+      .back-link:hover { color: var(--white); }
+      .back-link::before { content: "←"; font-size: 1rem; }
+      .detail-tag {
+        display: inline-block;
+        padding: 6px 16px;
+        border: 1px solid rgba(255,249,242,0.35);
+        border-radius: 999px;
+        color: rgba(255,249,242,0.8);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 18px;
+        width: fit-content;
+      }
+      .detail-hero h1 {
+        margin: 0;
+        color: var(--white);
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(2.2rem,5.5vw,4rem);
+        line-height: 1.05;
+        font-weight: 700;
+        animation: fadeRise 700ms ease both;
+      }
+
+      .detail-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: clamp(50px,8vw,100px) clamp(20px,6vw,60px);
+      }
+      .detail-intro {
+        font-size: clamp(1.05rem,2vw,1.25rem);
+        color: var(--cocoa);
+        margin-bottom: clamp(40px,6vw,64px);
+        padding-bottom: clamp(28px,4vw,44px);
+        border-bottom: 1px solid var(--taupe);
+      }
+
+      /* Blocos principais */
+      .manejo-block {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(20px,4vw,48px);
+        align-items: start;
+        margin-bottom: clamp(44px,6vw,70px);
+        animation: fadeRise 700ms ease both;
+      }
+      .manejo-block:nth-child(2){animation-delay:60ms}
+      .manejo-block:nth-child(3){animation-delay:120ms}
+      .manejo-block:nth-child(4){animation-delay:180ms}
+      .manejo-block:nth-child(5){animation-delay:240ms}
+      .manejo-block:nth-child(6){animation-delay:300ms}
+
+      /* Bloco de imagem à esquerda ou direita */
+
+      .manejo-text {}
+      .manejo-text h2 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1.25rem,2.5vw,1.6rem);
+        color: var(--terracotta);
+        margin: 0 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .manejo-text h2::before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 2px;
+        background: var(--terracotta);
+        flex-shrink: 0;
+      }
+      .manejo-text .sub-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--cocoa);
+        margin: 18px 0 8px;
+        opacity: 0.7;
+      }
+      .manejo-text ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .manejo-text ul li {
+        padding: 11px 16px;
+        background: var(--paper-soft);
+        border-left: 3px solid var(--terracotta);
+        border-radius: 0 6px 6px 0;
+        font-size: clamp(0.92rem,1.5vw,1rem);
+        color: var(--ink);
+        transition: background 200ms ease, transform 200ms ease;
+      }
+      .manejo-text ul li:hover {
+        background: var(--white);
+        transform: translateX(4px);
+      }
+
+      /* Bloco full-width para o último item */
+      .manejo-block-full {
+        margin-bottom: clamp(44px,6vw,70px);
+        animation: fadeRise 700ms 300ms ease both;
+      }
+      .manejo-block-full h2 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1.25rem,2.5vw,1.6rem);
+        color: var(--terracotta);
+        margin: 0 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .manejo-block-full h2::before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 2px;
+        background: var(--terracotta);
+        flex-shrink: 0;
+      }
+      .manejo-block-full ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+      .manejo-block-full ul li {
+        padding: 16px 18px;
+        background: var(--paper-soft);
+        border-left: 3px solid var(--terracotta);
+        border-radius: 0 8px 8px 0;
+        font-size: clamp(0.92rem,1.5vw,1rem);
+        color: var(--ink);
+        transition: background 200ms ease, transform 200ms ease;
+      }
+      .manejo-block-full ul li:hover {
+        background: var(--white);
+        transform: translateX(4px);
+      }
+
+      .detail-footer {
+        margin-top: clamp(50px,8vw,80px);
+        padding-top: 32px;
+        border-top: 1px solid var(--taupe);
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Grid de 2 colunas */
+      .two-col-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(18px, 3vw, 36px);
+        margin-bottom: clamp(36px, 5vw, 56px);
+      }
+
+      .col-card {
+        background: var(--paper-soft);
+        border-radius: 10px;
+        padding: clamp(22px, 3vw, 36px);
+        border-top: 3px solid var(--terracotta);
+        box-shadow: 0 6px 22px rgba(92,55,39,0.09);
+        transition: transform 240ms ease, box-shadow 240ms ease;
+        animation: fadeRise 700ms ease both;
+      }
+
+      .col-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 32px rgba(92,55,39,0.15);
+      }
+
+      .col-card:nth-child(1){animation-delay:60ms}
+      .col-card:nth-child(2){animation-delay:120ms}
+      .col-card:nth-child(3){animation-delay:180ms}
+      .col-card:nth-child(4){animation-delay:240ms}
+      .col-card:nth-child(5){animation-delay:300ms}
+
+      .col-card--wide {
+        grid-column: 1 / -1;
+      }
+
+      .col-card h2 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+        color: var(--terracotta);
+        margin: 0 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .col-card h2::before {
+        content: "";
+        display: inline-block;
+        width: 18px;
+        height: 2px;
+        background: var(--terracotta);
+        flex-shrink: 0;
+      }
+
+      .col-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 14px;
+        display: grid;
+        gap: 7px;
+      }
+
+      .col-card ul:last-child { margin-bottom: 0; }
+
+      .col-card ul li {
+        padding: 10px 14px;
+        background: var(--white);
+        border-left: 3px solid var(--terracotta);
+        border-radius: 0 5px 5px 0;
+        font-size: clamp(0.88rem, 1.4vw, 0.98rem);
+        color: var(--ink);
+        transition: background 180ms ease, transform 180ms ease;
+      }
+
+      .col-card ul li:hover {
+        background: var(--paper);
+        transform: translateX(3px);
+      }
+
+      .autocuidado-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+        display: grid !important;
+        gap: 10px !important;
+      }
+
+      @media (max-width: 700px) {
+        .two-col-grid {
+          grid-template-columns: 1fr;
+        }
+        .col-card--wide {
+          grid-column: 1;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .manejo-block {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="detail-hero">
+      <a href="index.html" class="back-link">Voltar ao guia</a>
+      <span class="detail-tag">Manejo inicial</span>
+      <h1>Manejo Conservador</h1>
+    </div>
+
+    <div class="detail-content">
+      <p class="detail-intro">
+        O manejo conservador deve priorizar educação, funcionalidade e redução da sensibilização dolorosa.
+      </p>
+
+      <div class="two-col-grid">
+
+        <!-- Coluna 1 -->
+        <div class="col-card">
+          <h2>Educação em Dor</h2>
+          <p class="sub-label">Orientar a paciente sobre</p>
+          <ul>
+            <li>Natureza multifatorial da dor</li>
+            <li>Relação entre tensão muscular e sintomas</li>
+            <li>Importância da movimentação gradual</li>
+            <li>Papel do estresse na amplificação dolorosa</li>
+          </ul>
+        </div>
+
+        <div class="col-card">
+          <h2>Respiração Diafragmática</h2>
+          <p class="sub-label">Objetivos</p>
+          <ul>
+            <li>Redução da tensão muscular</li>
+            <li>Relaxamento do assoalho pélvico</li>
+            <li>Controle autonômico</li>
+          </ul>
+          <p class="sub-label">Orientação</p>
+          <ul>
+            <li>Inspirar lentamente pelo nariz</li>
+            <li>Expandir o abdômen</li>
+            <li>Expirar lentamente pela boca</li>
+          </ul>
+        </div>
+
+        <div class="col-card">
+          <h2>Exercícios Leves de Mobilidade</h2>
+          <p class="sub-label">Exemplos</p>
+          <ul>
+            <li>Inclinação pélvica</li>
+            <li>Mobilidade lombar</li>
+            <li>Alongamentos suaves</li>
+            <li>Caminhada leve</li>
+          </ul>
+        </div>
+
+        <div class="col-card">
+          <h2>Relaxamento Muscular</h2>
+          <p class="sub-label">Estratégias</p>
+          <ul>
+            <li>Técnicas de consciência corporal</li>
+            <li>Relaxamento progressivo</li>
+            <li>Alongamentos suaves</li>
+            <li>Redução de posturas sustentadas</li>
+          </ul>
+        </div>
+
+        <div class="col-card col-card--wide">
+          <h2>Incentivo ao Autocuidado</h2>
+          <p class="sub-label">Estimular</p>
+          <ul class="autocuidado-list">
+            <li>Sono adequado</li>
+            <li>Hidratação</li>
+            <li>Redução do sedentarismo</li>
+            <li>Controle do estresse</li>
+            <li>Adesão ao acompanhamento multiprofissional</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="detail-footer">
+        <a class="button ghost" href="index.html">← Voltar ao guia completo</a>
+      </div>
+    </div>
+  </body>
+</html>

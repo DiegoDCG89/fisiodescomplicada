@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anamnese Inicial | Guia Clínico Interdisciplinar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .detail-hero {
+        min-height: 36vh;
+        background: linear-gradient(135deg, var(--terracotta) 0%, var(--cocoa) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: clamp(28px,6vw,80px);
+        position: relative;
+        overflow: hidden;
+      }
+      .detail-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 70% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+      }
+      .back-link {
+        position: absolute;
+        top: clamp(18px,4vw,36px);
+        left: clamp(20px,6vw,80px);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255,249,242,0.75);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 200ms ease;
+      }
+      .back-link:hover { color: var(--white); }
+      .back-link::before { content: "←"; font-size: 1rem; }
+      .detail-tag {
+        display: inline-block;
+        padding: 6px 16px;
+        border: 1px solid rgba(255,249,242,0.35);
+        border-radius: 999px;
+        color: rgba(255,249,242,0.8);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 18px;
+        width: fit-content;
+      }
+      .detail-hero h1 {
+        margin: 0;
+        color: var(--white);
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(2.4rem,6vw,4.2rem);
+        line-height: 1.05;
+        font-weight: 700;
+        animation: fadeRise 700ms ease both;
+      }
+
+      .detail-content {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: clamp(50px,8vw,100px) clamp(20px,6vw,60px);
+      }
+      .detail-intro {
+        font-size: clamp(1.05rem,2vw,1.25rem);
+        color: var(--cocoa);
+        margin-bottom: clamp(40px,6vw,70px);
+        padding-bottom: clamp(28px,4vw,44px);
+        border-bottom: 1px solid var(--taupe);
+      }
+      .detail-block {
+        margin-bottom: clamp(36px,5vw,56px);
+        animation: fadeRise 700ms ease both;
+      }
+      .detail-block:nth-child(2){animation-delay:80ms}
+      .detail-block:nth-child(3){animation-delay:160ms}
+      .detail-block h2 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1.1rem,2.2vw,1.45rem);
+        color: var(--terracotta);
+        margin: 0 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .detail-block h2::before {
+        content: "";
+        display: inline-block;
+        width: 28px;
+        height: 2px;
+        background: var(--terracotta);
+        flex-shrink: 0;
+      }
+      .detail-block ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .detail-block ul li {
+        padding: 14px 18px;
+        background: var(--paper-soft);
+        border-left: 3px solid var(--terracotta);
+        border-radius: 0 6px 6px 0;
+        font-size: clamp(0.95rem,1.6vw,1.05rem);
+        color: var(--ink);
+        transition: background 200ms ease, transform 200ms ease;
+      }
+      .detail-block ul li:hover {
+        background: var(--white);
+        transform: translateX(4px);
+      }
+
+      /* EVA Scale */
+      .eva-block {
+        background: var(--paper-soft);
+        border-radius: 12px;
+        padding: clamp(28px,5vw,52px);
+        margin-bottom: clamp(36px,5vw,56px);
+        animation: fadeRise 700ms 160ms ease both;
+      }
+      .eva-block h2 {
+        font-family: Georgia,"Times New Roman",serif;
+        font-size: clamp(1.1rem,2.2vw,1.45rem);
+        color: var(--terracotta);
+        margin: 0 0 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .eva-block h2::before {
+        content: "";
+        display: inline-block;
+        width: 28px;
+        height: 2px;
+        background: var(--terracotta);
+        flex-shrink: 0;
+      }
+      .eva-block .subtitle {
+        font-size: 0.9rem;
+        color: var(--ink);
+        opacity: 0.7;
+        margin: 0 0 28px;
+      }
+      .eva-scale {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .eva-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        background: var(--white);
+        font-family: Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--ink);
+        cursor: pointer;
+        transition: all 200ms ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .eva-btn:hover { transform: translateY(-3px); border-color: var(--terracotta); }
+      .eva-btn.selected { background: var(--terracotta); color: var(--white); border-color: var(--terracotta); transform: translateY(-4px); box-shadow: 0 8px 20px rgba(164,78,36,0.3); }
+      .eva-btn[data-val="0"] { color: #5a8a5a; }
+      .eva-btn[data-val="1"], .eva-btn[data-val="2"], .eva-btn[data-val="3"] { color: #7aaa5a; }
+      .eva-btn[data-val="4"], .eva-btn[data-val="5"], .eva-btn[data-val="6"] { color: #cc8833; }
+      .eva-btn[data-val="7"], .eva-btn[data-val="8"], .eva-btn[data-val="9"], .eva-btn[data-val="10"] { color: #c04030; }
+      .eva-btn.selected { color: var(--white) !important; }
+
+      .eva-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink);
+        opacity: 0.6;
+        margin-bottom: 24px;
+      }
+      .eva-result {
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+        border-radius: 8px;
+        background: var(--white);
+        border-left: 4px solid var(--taupe);
+        font-size: 1rem;
+        color: var(--ink);
+        transition: border-color 300ms ease, background 300ms ease;
+      }
+      .eva-result .eva-score {
+        font-family: Georgia, serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        min-width: 40px;
+        text-align: center;
+        transition: color 300ms ease;
+      }
+      .eva-result .eva-label { font-weight: 600; }
+      .eva-result .eva-desc { font-size: 0.88rem; opacity: 0.7; }
+
+      .detail-footer {
+        margin-top: clamp(50px,8vw,80px);
+        padding-top: 32px;
+        border-top: 1px solid var(--taupe);
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="detail-hero">
+      <a href="index.html" class="back-link">Voltar ao guia</a>
+      <span class="detail-tag">Seção 03</span>
+      <h1>Anamnese Inicial</h1>
+    </div>
+
+    <div class="detail-content">
+      <p class="detail-intro">
+        A avaliação clínica deve considerar não apenas a dor, mas também os impactos físicos, emocionais e funcionais da paciente.
+      </p>
+
+      <div class="detail-block">
+        <h2>O profissional de saúde pode investigar</h2>
+        <ul>
+          <li>Quando a dor começou</li>
+          <li>Frequência e intensidade da dor</li>
+          <li>Relação com o ciclo menstrual</li>
+          <li>Presença de dor durante relações sexuais</li>
+          <li>Sintomas urinários ou intestinais</li>
+          <li>Interferência no sono e rotina</li>
+          <li>Relação da dor com postura ou esforço físico</li>
+          <li>Histórico emocional e níveis de estresse</li>
+        </ul>
+      </div>
+
+      <div class="eva-block">
+        <h2>Escala de Intensidade da Dor (EVA)</h2>
+        <p class="subtitle">Escala Visual Analógica — selecione um valor para visualizar a classificação</p>
+
+        <div class="eva-scale" role="group" aria-label="Escala de dor de 0 a 10">
+          <button class="eva-btn" data-val="0">0</button>
+          <button class="eva-btn" data-val="1">1</button>
+          <button class="eva-btn" data-val="2">2</button>
+          <button class="eva-btn" data-val="3">3</button>
+          <button class="eva-btn" data-val="4">4</button>
+          <button class="eva-btn" data-val="5">5</button>
+          <button class="eva-btn" data-val="6">6</button>
+          <button class="eva-btn" data-val="7">7</button>
+          <button class="eva-btn" data-val="8">8</button>
+          <button class="eva-btn" data-val="9">9</button>
+          <button class="eva-btn" data-val="10">10</button>
+        </div>
+
+        <div class="eva-labels">
+          <span>Sem dor</span>
+          <span>Dor máxima</span>
+        </div>
+
+        <div class="eva-result" id="evaResult">
+          <span class="eva-score" id="evaScore">—</span>
+          <div>
+            <div class="eva-label" id="evaLabel">Selecione um valor acima</div>
+            <div class="eva-desc" id="evaDesc">A avaliação periódica da intensidade ajuda a acompanhar a evolução do tratamento.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-footer">
+        <a class="button ghost" href="index.html">← Voltar ao guia completo</a>
+      </div>
+    </div>
+
+    <script>
+      const levels = {
+        0:  { label: "Ausência de dor",  desc: "Paciente sem dor no momento da avaliação.", color: "#5a8a5a", border: "#5a8a5a" },
+        1:  { label: "Dor leve",         desc: "Dor presente mas sem interferência significativa nas atividades.", color: "#7aaa5a", border: "#7aaa5a" },
+        2:  { label: "Dor leve",         desc: "Dor presente mas sem interferência significativa nas atividades.", color: "#7aaa5a", border: "#7aaa5a" },
+        3:  { label: "Dor leve",         desc: "Dor presente mas sem interferência significativa nas atividades.", color: "#7aaa5a", border: "#7aaa5a" },
+        4:  { label: "Dor moderada",     desc: "Dor interfere em algumas atividades diárias.", color: "#cc8833", border: "#cc8833" },
+        5:  { label: "Dor moderada",     desc: "Dor interfere em algumas atividades diárias.", color: "#cc8833", border: "#cc8833" },
+        6:  { label: "Dor moderada",     desc: "Dor interfere em algumas atividades diárias.", color: "#cc8833", border: "#cc8833" },
+        7:  { label: "Dor intensa",      desc: "Dor limita significativamente as atividades e qualidade de vida.", color: "#c04030", border: "#c04030" },
+        8:  { label: "Dor intensa",      desc: "Dor limita significativamente as atividades e qualidade de vida.", color: "#c04030", border: "#c04030" },
+        9:  { label: "Dor intensa",      desc: "Dor limita significativamente as atividades e qualidade de vida.", color: "#c04030", border: "#c04030" },
+        10: { label: "Dor intensa",      desc: "Dor máxima — avaliação prioritária e encaminhamento imediato.", color: "#c04030", border: "#c04030" },
+      };
+
+      document.querySelectorAll('.eva-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.eva-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          const val = parseInt(btn.dataset.val);
+          const info = levels[val];
+          document.getElementById('evaScore').textContent = val;
+          document.getElementById('evaScore').style.color = info.color;
+          document.getElementById('evaLabel').textContent = info.label;
+          document.getElementById('evaDesc').textContent = info.desc;
+          const result = document.getElementById('evaResult');
+          result.style.borderLeftColor = info.border;
+          result.style.background = '#fff9f2';
+        });
+      });
+    </script>
+  </body>
+</html>
