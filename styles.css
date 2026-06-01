@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400&display=swap");
+
 :root {
   --paper: #efe7dc;
   --paper-soft: #f8f3eb;
@@ -77,7 +79,7 @@ a {
 .hero h1,
 h2,
 .kicker {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Lora, Georgia, "Times New Roman", serif;
 }
 
 .brand {
@@ -257,7 +259,7 @@ h2,
 
 .number {
   color: rgba(164, 78, 36, 0.28);
-  font: 700 clamp(2.8rem, 7vw, 6rem) Georgia, "Times New Roman", serif;
+  font: 700 clamp(2.8rem, 7vw, 6rem) Lora, Georgia, "Times New Roman", serif;
   line-height: 0.8;
 }
 
@@ -294,7 +296,7 @@ h2,
   border-radius: 6px;
   background: var(--paper-soft);
   color: var(--cocoa);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Lora, Georgia, "Times New Roman", serif;
 }
 
 .pill-card p,
@@ -695,4 +697,22 @@ h2,
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
   }
+}
+
+/* ── SKIP LINK (acessibilidade) ────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background: var(--terracotta);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 0 0 8px 8px;
+  transition: top 200ms ease;
+}
+.skip-link:focus {
+  top: 0;
 }
